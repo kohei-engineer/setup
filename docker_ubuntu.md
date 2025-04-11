@@ -11,11 +11,6 @@ sudo apt update
 sudo apt install -y ca-certificates curl gnupg
 ```
 
-## apt が HTTPS 経由でパッケージを使用できるように必要なパッケージをインストール
-```bash
-sudo apt install -y ca-certificates curl gnupg
-```
-
 ## 公式の GPG キーを保存するディレクトリを作成
 ```bash
 sudo install -m 0755 -d /etc/apt/keyrings
