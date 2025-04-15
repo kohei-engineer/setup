@@ -48,3 +48,23 @@ sudo apt install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin d
 ```bash
 sudo usermod -aG docker {USER}
 ```
+
+# プロキシを設定
+
+## systemd の設定ファイルを開く
+```bash
+sudo systemctl edit docker
+```
+
+## 環境変数に設定
+* ドロップインファイルに記述
+```bash
+[Service]
+Environment = "http_proxy={PROXY}:{PORT}" "https_proxy={PROXY}:{PORT}"
+```
+
+## 再起動して設定を反映
+```bash
+sudo systemctl daemon-reload
+sudo systemctl restart docker
+```
