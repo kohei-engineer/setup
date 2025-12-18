@@ -1,46 +1,46 @@
-# プロキシ セットアップ
+## プロキシ セットアップ
 このドキュメントでは、Ubuntuにプロキシを設定する方法について説明します。
 
-## プロキシの確認方法
+### プロキシの確認方法
 ```bash
 printenv http_proxy https_proxy
 ```
 
-## プロキシの設定箇所の確認方法
+### プロキシの設定箇所の確認方法
 ```bash
 sudo grep -r http_proxy /etc/*
 ```
 
-## 環境変数の設定(ログインユーザのbash)
+### 環境変数の設定(ログインユーザのbash)
 * ログインユーザのbashシェルのみを対象とし、ログイン時に自動的に適用される永続的な設定
 
-### .bashrc ファイルを開く
+#### .bashrc ファイルを開く
 ```bash
 nano ~/.bashrc
 ```
 
-### プロキシ設定を追加
+#### プロキシ設定を追加
 * 末尾に追記
 ```bash
-## proxy setting
+# proxy setting
 export http_proxy="{PROXY}:{PORT}"
 export https_proxy=$http_proxy
 ```
 
-### 設定を反映
+#### 設定を反映
 ```bash
 source ~/.bashrc
 ```
 
-## 環境変数の設定(全ユーザのシステムシェル設定)
+### 環境変数の設定(全ユーザのシステムシェル設定)
 * 全ユーザのあらゆるシェルを対象とし、ログイン時に自動的に適用される永続的な設定
 
-### proxy.sh ファイルを開く
+#### proxy.sh ファイルを開く
 ```bash
 nano /etc/profile.d/proxy.sh
 ```
 
-### プロキシ設定を追加
+#### プロキシ設定を追加
 * 末尾に追記
 ```bash
 # proxy setting
@@ -56,18 +56,18 @@ ftp_proxy="$MY_PROXY"
 export HTTP_PROXY HTTPS_PROXY FTP_PROXY http_proxy https_proxy ftp_proxy
 ```
 
-### 設定を反映
+#### 設定を反映
 * シェルを再起動
 
-## 環境変数の設定(全ユーザのシステム設定)
+### 環境変数の設定(全ユーザのシステム設定)
 * 全ユーザの全プロセスを対象とし、ログイン時に自動的に適用される永続的な設定
 
-### environment ファイルを開く
+#### environment ファイルを開く
 ```bash
 nano /etc/environment
 ```
 
-### プロキシ設定を追加
+#### プロキシ設定を追加
 * 末尾に追記
 ```bash
 # proxy setting
@@ -82,17 +82,17 @@ NO_PROXY="localhost,127.0.0.1,{DOMAIN}"
 ```
 * {DOMAIN}にサブドメインは含まない
 
-### 設定を反映
+#### 設定を反映
 * ログインしているセッションを再起動
 
-## apt の設定
+### apt の設定
 
-### apt.confファイルを開く
+#### apt.confファイルを開く
 ```bash
 sudo nano /etc/apt/apt.conf
 ```
 
-### プロキシ設定を追加
+#### プロキシ設定を追加
 ```bash
 Acquire::http::Proxy "{PROXY}:{PORT}";
 Acquire::https::Proxy "{PROXY}:{PORT}";
