@@ -58,7 +58,7 @@ sudo systemctl edit docker
 
 ### 環境変数に設定
 * ドロップインファイルに記述
-```bash
+```ini
 [Service]
 Environment = "http_proxy={PROXY}:{PORT}" "https_proxy={PROXY}:{PORT}"
 ```

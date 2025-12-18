@@ -21,7 +21,7 @@ nano ~/.bashrc
 
 #### プロキシ設定を追加
 * 末尾に追記
-```bash
+```sh
 # proxy setting
 export http_proxy="{PROXY}:{PORT}"
 export https_proxy=$http_proxy
@@ -42,7 +42,7 @@ nano /etc/profile.d/proxy.sh
 
 #### プロキシ設定を追加
 * 末尾に追記
-```bash
+```sh
 # proxy setting
 MY_PROXY="{PROXY}:{PORT}"
 
@@ -69,7 +69,7 @@ nano /etc/environment
 
 #### プロキシ設定を追加
 * 末尾に追記
-```bash
+```conf
 # proxy setting
 http_proxy="{PROXY}:{PORT}/"
 HTTP_PROXY="{PROXY}:{PORT}/"
@@ -93,7 +93,7 @@ sudo nano /etc/apt/apt.conf
 ```
 
 #### プロキシ設定を追加
-```bash
+```conf
 Acquire::http::Proxy "{PROXY}:{PORT}";
 Acquire::https::Proxy "{PROXY}:{PORT}";
 ```
