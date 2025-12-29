@@ -63,6 +63,12 @@ uv remove {package name}
 uv run {command}
 ```
 
+### 依存関係の同期
+* 依存関係の初回インストール時や更新時に実行
+```sh
+uv sync
+```
+
 ## ディレクトリ構成例
 ```
 project-name/
