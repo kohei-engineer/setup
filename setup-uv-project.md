@@ -12,17 +12,24 @@ powershell -ExecutionPolicy ByPass -c "irm https://astral.sh/uv/install.ps1 | ie
 uv --version
 ```
 
+### uv の更新
+* 公式インストーラでインストールした場合は、以下のコマンドにより更新可能
+```sh
+uv self update
+```
+
 ### uv プロジェクトのセットアップ
 
 #### ローカルに既存ソースがない場合
 ```sh
-uv init {project name}
+uv init --package {project name}
 ```
 * コマンドを実行したディレクトリ内にプロジェクトディレクトリが作成 workspace/project
+* `--package` を付けると、Python パッケージとして扱うための構成（`src` 配下のパッケージ構成や、後続のビルド・インストール向けの前提）が整うため、基本的にはこの形を使うとよい
 
 #### ローカルに既存ソースがある場合
 ```sh
-uv init
+uv init --package
 ```
 * プロジェクトディレクトリ内で実行 workspace=repository
 * 既存ソースがある場合は以下のファイルが作成されない可能性があるため注意
